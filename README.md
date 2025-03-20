@@ -14,10 +14,10 @@ GET /api/metadata?url=https://www.youtube.com/watch?v=kPa7bsKwL-c
 ```
 ```json
 {
-    title: "Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)",
-    duration: "252",
-    thumbnail: "https://i.ytimg.com/vi/kPa7bsKwL-c/maxresdefault.jpg",
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXRsZSI6IkxhZHkgR2FnYSwgQnJ1bm8gTWFycyAtIERpZSBXaXRoIEEgU21pbGUgKE9mZmljaWFsIE11c2ljIFZpZGVvKSIsImR1cmF0aW9uIjoiMjUyIiwidGh1bWJuYWlsIjoiaHR0cHM6Ly9pLnl0aW1nLmNvbS92aS9rUGE3YnNLd0wtYy9tYXhyZXNkZWZhdWx0LmpwZyIsInVybCI6Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9a1BhN2JzS3dMLWMiLCJpYXQiOjE3NDI0NTQyMjd9.k7rfnxxC8Y1aG_Bv8arZT-ArjBQNRwUGSo_NaPpNktw"
+    "title": "Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)",
+    "duration": "252",
+    "thumbnail": "https://i.ytimg.com/vi/kPa7bsKwL-c/maxresdefault.jpg",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXRsZSI6IkxhZHkgR2FnYSwgQnJ1bm8gTWFycyAtIERpZSBXaXRoIEEgU21pbGUgKE9mZmljaWFsIE11c2ljIFZpZGVvKSIsImR1cmF0aW9uIjoiMjUyIiwidGh1bWJuYWlsIjoiaHR0cHM6Ly9pLnl0aW1nLmNvbS92aS9rUGE3YnNLd0wtYy9tYXhyZXNkZWZhdWx0LmpwZyIsInVybCI6Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9a1BhN2JzS3dMLWMiLCJpYXQiOjE3NDI0NTQyMjd9.k7rfnxxC8Y1aG_Bv8arZT-ArjBQNRwUGSo_NaPpNktw"
 }
 ```
 
