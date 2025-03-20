@@ -45,6 +45,7 @@ test('should get mp3 audio stream when URL and metadata are valid', async functi
     ).json();
 
     const raw = await fetch(`${APP_URL}/api/mp3?metadata=${token}`);
+    await raw.arrayBuffer();
     const contentType = raw.headers.get('content-type');
     const disposition = raw.headers.get('content-disposition');
 
@@ -133,5 +134,23 @@ test('should throw error when yt-dlp fails', async function(t) {
         raw.status,
         500,
         'should return 500 status code'
+    );
+});
+
+test('should throw error when metadata is invalid', async function(t) {
+    t.plan(2);
+
+    const raw = await fetch(`${APP_URL}/api/mp3?metadata=invalid`);
+    const data = await raw.json();
+
+    t.assert.equal(
+        data.message,
+        'Invalid token',
+        'should return an error message'
+    );
+    t.assert.equal(
+        raw.status,
+        400,
+        'should return 400 status code'
     );
 });

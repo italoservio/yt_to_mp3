@@ -1,14 +1,12 @@
 import {HttpException} from '../../exceptions/http-exception.js';
 
 export class ErrorFilterMiddleware {
-    static handler(err, _req, res, _next) {
-        console.log('ErrorFilterMiddleware', err);
-
+    static handler(err, req, res, _next) {
         res.removeHeader('Content-Disposition');
         res.removeHeader('Content-Type');
 
         if (err instanceof HttpException) {
-            err.ctx.logger().error(err.message);
+            req.ctx.logger().error(err.message);
             return res.status(err.status).json(err.toJSON());
         }
 

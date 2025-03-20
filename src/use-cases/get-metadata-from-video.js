@@ -18,11 +18,11 @@ export class GetMetadataFromVideo {
         try {
             metadata = this.ytdlAdapter.getVideoMetadata(ctx);
         } catch (err) {
-            throw new HttpException(ctx, err.message, 500);
+            throw new HttpException(err.message, 500);
         }
 
         if (metadata.duration > this.TEN_MINUTES_IN_SECONDS) {
-            throw new HttpException(ctx, 'Video duration should not exceed 10 minutes', 400);
+            throw new HttpException('Video duration should not exceed 10 minutes', 400);
         }
 
         const token = this.jwtAdapter.sign({...metadata, url});

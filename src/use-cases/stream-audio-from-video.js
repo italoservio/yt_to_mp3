@@ -15,7 +15,7 @@ export class StreamAudioFromVideo {
             const metadata = this.jwtAdapter.verify(token);
             url = metadata.url;
         } catch (err) {
-            throw new HttpException(ctx, 'Invalid token');
+            throw new HttpException('Invalid token', 400);
         }
 
         this.ytdlAdapter.setURL(url);

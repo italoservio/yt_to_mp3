@@ -1,5 +1,4 @@
 import {HttpException} from '../../exceptions/http-exception.js';
-import {Context} from '../context.js';
 
 export class VideoController {
     constructor(
@@ -11,33 +10,31 @@ export class VideoController {
     }
 
     getMetadata(req, res) {
-        const ctx = new Context();
         const url = req.query.url;
 
         if (!url) {
-            throw new HttpException(ctx, 'URL query parameter is required', 400);
+            throw new HttpException('URL query parameter is required', 400);
         }
 
         if (!url.includes('youtube.com/watch?v=')) {
-            throw new HttpException(ctx, 'A valid Youtube video URL is expected', 400);
+            throw new HttpException('A valid Youtube video URL is expected', 400);
         }
 
-        const metadata = this.getMetadataFromVideo.exec(ctx, url);
+        const metadata = this.getMetadataFromVideo.exec(req.ctx, url);
         res.json(metadata);
     }
 
     streamAudio(req, res) {
-        const ctx = new Context();
         const token = req.query.metadata;
 
         if (!token) {
-            throw new HttpException(ctx, 'Metadata query parameter is required', 400);
+            throw new HttpException('Metadata query parameter is required', 400);
         }
 
-        const [stderr, stdout] = this.streamAudioFromVideo.exec(ctx, token);
+        const [stderr, stdout] = this.streamAudioFromVideo.exec(req.ctx, token);
 
         stderr.on('data', (error) => {
-            console.error('Prematurely ending response stream:', error.toString());
+            req.ctx.logger().error('Prematurely ending response stream:', error.toString());
             res.end();
         });
 

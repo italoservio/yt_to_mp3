@@ -36,8 +36,6 @@ export class YTDLAdapter {
     getAudioStream(ctx) {
         const args = [
             '--quiet',
-            '--no-warnings',
-            '--no-keep-fragments',
             '-f', 'wa',
             '--extract-audio',
             '--audio-format', 'mp3',
