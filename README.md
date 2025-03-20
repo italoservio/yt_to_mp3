@@ -49,8 +49,11 @@ ok 5 - should throw error when URL is not a valid Youtube video URL
 # should throw error when yt-dlp fails
 ok 6 - should throw error when yt-dlp fails
 
-1..6
-# tests 6
+# should throw error when metadata is invalid
+ok 7 - should throw error when metadata is invalid
+
+1..7
+# tests 7
 # suites 0
 # pass 6
 # fail 0
