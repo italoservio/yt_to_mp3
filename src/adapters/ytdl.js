@@ -37,6 +37,7 @@ export class YTDLAdapter {
         const args = [
             '--quiet',
             '--no-warnings',
+            '--no-keep-fragments',
             '-f', 'wa',
             '--extract-audio',
             '--audio-format', 'mp3',
