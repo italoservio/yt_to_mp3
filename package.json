@@ -1,0 +1,29 @@
+{
+  "name": "yt_to_mp3",
+  "version": "1.0.0",
+  "description": "Download youtube videos as mp3",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker build -t ytmp3 .",
+    "docker:clean": "docker rm -f ytmp3",
+    "docker:run": "docker run -p 5100:5100 --name ytmp3 -e JWT_SECRET=d7aa1e945afa9d9c ytmp3",
+    "docker:start": "npm run docker:build && npm run docker:clean && npm run docker:run",
+    "test:e2e": "docker compose up --abort-on-container-exit",
+    "start": "node src/index.js",
+    "e2e": "node test/e2e.spec.js"
+  },
+  "keywords": [
+    "youtube",
+    "mp3",
+    "download",
+    "youtube-dl"
+  ],
+  "author": "https://github.com/italoservio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.21.2",
+    "express-async-errors": "3.1.1",
+    "jsonwebtoken": "9.0.2"
+  }
+}

@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://app:5100/api/health"]
+      start_period: 10s
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5100:5100"
+    volumes:
+      - .:/app
+    environment:
+      - SERVER_PORT=5100
+      - JWT_SECRET=d7aa1e945afa9d9c
+
+  e2e:
+    image: node:22.14.0-bookworm-slim
+    depends_on:
+      app:
+        condition: service_healthy
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: [ "npm", "run", "e2e" ]
+    environment:
+      - APP_URL=http://app:5100
