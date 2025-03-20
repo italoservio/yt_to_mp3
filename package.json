@@ -9,9 +9,7 @@
     "docker:clean": "docker rm -f ytmp3",
     "docker:run": "docker run -p 5100:5100 --name ytmp3 -e JWT_SECRET=d7aa1e945afa9d9c ytmp3",
     "docker:start": "npm run docker:build && npm run docker:clean && npm run docker:run",
-    "test:e2e": "docker compose up --abort-on-container-exit",
-    "start": "node src/index.js",
-    "e2e": "node test/e2e.spec.js"
+    "test:e2e": "docker compose up --abort-on-container-exit"
   },
   "keywords": [
     "youtube",
