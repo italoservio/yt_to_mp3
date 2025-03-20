@@ -1,0 +1,14 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  E2E:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run tests
+        run: docker compose up --abort-on-container-exit
