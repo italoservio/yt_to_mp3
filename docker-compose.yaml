@@ -9,8 +9,6 @@ services:
       retries: 5
     ports:
       - "5100:5100"
-    volumes:
-      - .:/app
     environment:
       - SERVER_PORT=5100
       - JWT_SECRET=d7aa1e945afa9d9c
@@ -24,6 +22,6 @@ services:
     volumes:
       - .:/app
     command: |
-      sh -c "npm install && node test/e2e.spec.js"
+      sh -c "npm i && node test/e2e.spec.js"
     environment:
       - APP_URL=http://app:5100
